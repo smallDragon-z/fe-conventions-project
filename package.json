@@ -1,0 +1,37 @@
+{
+  "name": "create-dgn-app",
+  "version": "0.0.1",
+  "private": false,
+  "description": "基于ts、eslint、stylelint、commitlint、cell等前端工程化模版。包含了代码格式化规范、代码规范、git提交规范",
+  "keywords": [
+    "react",
+    "vue",
+    "ts",
+    "eslint",
+    "stylelint",
+    "commitlint",
+    "cell",
+    "git",
+    "工程化"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+"
+  },
+  "author": "smallDragon-z",
+  "license": "ISC",
+  "bin": {
+    "create-dgn-app": "./bin/create.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "download-git-repo": "^1.1.0",
+    "inquirer": "^6.2.2",
+    "ora": "^3.2.0"
+  },
+  "devDependencies": {
+    "prettier": "3.1.1"
+  }
+}
