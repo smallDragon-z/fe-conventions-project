@@ -5,8 +5,7 @@
  * */
 
 const checkFilenameRules = (filename) => {
-  console.log('filename', filename);
-  const reg = /^[a-z]+(-[a-z]+)*$/;
+  const reg = /^[a-z0-9]+(-[a-z0-9]+)*$/;
   return reg.test(filename);
 };
 module.exports = { checkFilenameRules };

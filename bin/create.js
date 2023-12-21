@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /***/
-const useInquirer = require('../src/utils/useInquirer');
+const useInquirerCreate = require('../src/utils/useInquirerCreate');
 const { version } = require('../package.json');
+const createVue3Template = require('./createVue3Template');
+const createReactTemplate = require('./createReactTemplate');
 
 // 定义命令行参数
 const { Command } = require('commander');
@@ -9,21 +11,25 @@ const program = new Command();
 
 // create+projectName命令用于快捷的创建指定文件名的项目
 program
-  .command('create [project]')
+  .command('create <project>')
   .version(version)
-  .description('Create a new template')
-  .option('-f, --force', 'Overwrite existing files')
+  .description('创建项目模板的指令')
+  .option('--template <template>', '创建项目模版')
   .action((project, options) => {
-    if (!project) {
-      useInquirer();
+    // 不存在project参数时且options.vue3
+    if (options.template === 'vue') {
+      createVue3Template(project);
+    }
+    if (options.template === 'react') {
+      createReactTemplate(project);
     }
   });
-// add命令用于命令式的方式创建项目
 program
   .command('add')
   .version(version)
-  .description('Create projects interactively')
+  .description('使用交互式命令行创建项目模板')
   .action(() => {
-    useInquirer();
+    useInquirerCreate();
   });
+
 program.parse(process.argv);

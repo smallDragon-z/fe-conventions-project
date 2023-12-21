@@ -20,5 +20,12 @@ const questions = [
       }
     },
   },
+  {
+    type: 'list',
+    name: 'template',
+    message: '请选择模板类型',
+    choices: ['Vue', 'React'],
+    default: 'Vue',
+  },
 ];
 module.exports = questions;
